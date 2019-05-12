@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import QuestionCount from '../components/QuestionCount';
 import Question from '../components/Question';
 import AnswerOption from '../components/AnswerOption';
+import QuestionCount from '../components/QuestionCount';
 
 function Quiz(props) {
 
