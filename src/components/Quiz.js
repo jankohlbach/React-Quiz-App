@@ -10,10 +10,9 @@ function Quiz(props) {
     return (
       <AnswerOption
         key={key.content}
-        questionId={props.questionId}
         answer={props.answer}
         answerContent={key.content}
-        answerCategory={key.category}
+        points={key.points}
         onAnswerSelected={props.onAnswerSelected}
       ></AnswerOption>
     )

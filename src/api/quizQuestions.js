@@ -3,20 +3,20 @@ const quizQuestions = [
     question: 'Question 1',
     answers: [
       {
-        category: 'clueless',
-        content: 'Answer clueless',
+        points: 0,
+        content: 'Answer 0 points',
       },
       {
-        category: 'beginner',
-        content: 'Answer beginner',
+        points: 1,
+        content: 'Answer 1 point',
       },
       {
-        category: 'advanced',
-        content: 'Answer advanced',
+        points: 2,
+        content: 'Answer 2 points',
       },
       {
-        category: 'expert',
-        content: 'Answer expert',
+        points: 3,
+        content: 'Answer 3 points',
       },
     ],
   },
@@ -24,20 +24,20 @@ const quizQuestions = [
     question: 'Question 2',
     answers: [
       {
-        category: 'clueless',
-        content: 'Answer clueless',
+        points: 0,
+        content: 'Answer 0 points',
       },
       {
-        category: 'beginner',
-        content: 'Answer beginner',
+        points: 1,
+        content: 'Answer 1 point',
       },
       {
-        category: 'advanced',
-        content: 'Answer advanced',
+        points: 2,
+        content: 'Answer 2 points',
       },
       {
-        category: 'expert',
-        content: 'Answer expert',
+        points: 3,
+        content: 'Answer 3 points',
       },
     ],
   },
@@ -45,20 +45,20 @@ const quizQuestions = [
     question: 'Question 3',
     answers: [
       {
-        category: 'clueless',
-        content: 'Answer clueless',
+        points: 0,
+        content: 'Answer 0 points',
       },
       {
-        category: 'beginner',
-        content: 'Answer beginner',
+        points: 1,
+        content: 'Answer 1 point',
       },
       {
-        category: 'advanced',
-        content: 'Answer advanced',
+        points: 2,
+        content: 'Answer 2 points',
       },
       {
-        category: 'expert',
-        content: 'Answer expert',
+        points: 3,
+        content: 'Answer 3 points',
       },
     ],
   },
@@ -66,20 +66,20 @@ const quizQuestions = [
     question: 'Question 4',
     answers: [
       {
-        category: 'clueless',
-        content: 'Answer clueless',
+        points: 0,
+        content: 'Answer 0 points',
       },
       {
-        category: 'beginner',
-        content: 'Answer beginner',
+        points: 1,
+        content: 'Answer 1 point',
       },
       {
-        category: 'advanced',
-        content: 'Answer advanced',
+        points: 2,
+        content: 'Answer 2 points',
       },
       {
-        category: 'expert',
-        content: 'Answer expert',
+        points: 3,
+        content: 'Answer 3 points',
       },
     ],
   },

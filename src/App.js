@@ -1,6 +1,5 @@
 import React from 'react';
 import quizQuestions from './api/quizQuestions.js';
-import results from './api/results.js';
 import Quiz from './components/Quiz';
 import Intro from './components/Intro';
 import Result from './components/Result';
@@ -11,18 +10,14 @@ class App extends React.Component {
 
     this.state = {
       showIntro: true,
+      showQuiz: false,
+      showResult: false,
       counter: 0,
       questionId: 1,
       question: '',
       answerOptions: [],
       answer: '',
-      answersCount: {
-        clueless: 0,
-        beginner: 0,
-        advanced: 0,
-        expert: 0,
-      },
-      result: '',
+      resultPoints: 0,
     }
 
     this.handleStart = this.handleStart.bind(this);
@@ -56,6 +51,7 @@ class App extends React.Component {
     });
 
     this.setState({
+      showQuiz: true,
       counter: 0,
       question: quizQuestions[0].question,
       answerOptions: shuffledAnswerOptions[0],
@@ -63,11 +59,10 @@ class App extends React.Component {
   }
 
   setUserAnswer(answer) {
-    const newAnswerCount = this.state.answersCount;
-    newAnswerCount[answer] = this.state.answersCount[answer] + 1;
+    let newResultPoints = this.state.resultPoints + parseInt(answer);
 
     this.setState({
-      answersCount: newAnswerCount,
+      resultPoints: newResultPoints,
       answer: answer,
     });
   }
@@ -85,31 +80,6 @@ class App extends React.Component {
     });
   }
 
-  getResults() {
-    const answersCount = this.state.answersCount;
-    const answersCountKeys = Object.keys(answersCount);
-    const answersCountValues = answersCountKeys.map((key) => {
-      return answersCount[key];
-    });
-    const maxAnswerCount = Math.max.apply(null, answersCountValues);
-
-    return answersCountKeys.filter((key) => {
-      return answersCount[key] === maxAnswerCount;
-    });
-  }
-
-  setResults(result) {
-    if(result.length === 1) {
-      this.setState({
-        result: result[0],
-      });
-    } else {
-      this.setState({
-        result: 'Undetermined',
-      });
-    }
-  }
-
   handleAnswerSelected(event) {
     this.setUserAnswer(event.target.value);
 
@@ -119,14 +89,17 @@ class App extends React.Component {
       }, 300);
     } else {
       setTimeout(() => {
-        return this.setResults(this.getResults());
+        this.setState({
+          showQuiz: false,
+          showResult: true,
+        });
       }, 300);
     }
   }
 
   renderResult() {
     return (
-      <Result resultCategory={this.state.result} resultText={results[this.state.result]}></Result>
+      <Result resultPoints={this.state.resultPoints} resultMaxPoints={quizQuestions.length * 3}></Result>
     )
   }
 
@@ -144,15 +117,13 @@ class App extends React.Component {
   }
 
   render() {
-    const showQuiz = !this.state.showIntro && !this.state.result;
-
     return (
       <div className="app">
         <h1>Webdeveloper Quick-Check</h1>
         <h2>Check out if you are the born webdeveloper</h2>
         {this.state.showIntro ? <Intro onStart={this.handleStart}></Intro> : null}
-        {showQuiz ? this.renderQuiz() : null}
-        {this.state.result ? this.renderResult() : null}
+        {this.state.showQuiz ? this.renderQuiz() : null}
+        {this.state.showResult ? this.renderResult() : null}
       </div>
     )
   }

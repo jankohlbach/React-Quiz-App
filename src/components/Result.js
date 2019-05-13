@@ -4,15 +4,14 @@ import PropTypes from 'prop-types';
 function Result(props) {
   return (
     <div className="result">
-      <h2>{props.resultCategory}</h2>
-      <p>{props.resultText}</p>
+      <h2>{props.resultPoints} of {props.resultMaxPoints} points</h2>
     </div>
   )
 }
 
 Result.propTypes = {
-  resultCategory: PropTypes.string.isRequired,
-  resultText: PropTypes.string.isRequired,
+  resultPoints: PropTypes.number.isRequired,
+  resultMaxPoints: PropTypes.number.isRequired,
 };
 
 export default Result;
