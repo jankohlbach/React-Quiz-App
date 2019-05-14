@@ -8,7 +8,7 @@ function AnswerOption(props) {
         type="radio"
         className="radioCustomButton"
         name="radioGroup"
-        checked={false}
+        checked={parseInt(props.answer) === props.points}
         id={props.points}
         value={props.points}
         disabled={props.answer}
