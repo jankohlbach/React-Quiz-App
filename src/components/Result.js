@@ -5,6 +5,7 @@ function Result(props) {
   return (
     <div className="result">
       <h2>{props.resultPoints} of {props.resultMaxPoints} points</h2>
+      <h2>{Math.round(props.resultPoints / props.resultMaxPoints * 100)}%</h2>
     </div>
   )
 }
