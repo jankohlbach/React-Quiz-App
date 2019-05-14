@@ -111,6 +111,7 @@ class App extends React.Component {
         question={this.state.question}
         answerOptions={this.state.answerOptions}
         answer={this.state.answer}
+        points={this.state.resultPoints}
         onAnswerSelected={this.handleAnswerSelected}
       ></Quiz>
     )
