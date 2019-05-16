@@ -99,7 +99,7 @@ class App extends React.Component {
 
   renderResult() {
     return (
-      <Result resultPoints={this.state.resultPoints} resultMaxPoints={quizQuestions.length * 3}></Result>
+      <Result resultPoints={this.state.resultPoints} resultMaxPoints={quizQuestions.length * 2}></Result>
     )
   }
 
