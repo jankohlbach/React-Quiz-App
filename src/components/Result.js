@@ -31,9 +31,9 @@ function Result(props) {
   }
 
   return (
-    <div className="result">
-      <h2>You reached {props.resultPoints} of {props.resultMaxPoints} points</h2>
-      <h2>{percentage}%</h2>
+    <div className="result card">
+      <h2>You reached <span>{props.resultPoints}</span> of <span>{props.resultMaxPoints}</span> points</h2>
+      <h2 className="resultPercentage">{percentage}%</h2>
       <p>{resultText}</p>
     </div>
   )
