@@ -120,7 +120,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <h1>Webdeveloper Quick-Check</h1>
+        <h1>Webdeveloper Check</h1>
         <h2>Check out if you are the born webdeveloper</h2>
         {this.state.showIntro ? <Intro onStart={this.handleStart}></Intro> : null}
         {this.state.showQuiz ? this.renderQuiz() : null}
