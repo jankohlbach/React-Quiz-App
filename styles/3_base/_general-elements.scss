@@ -4,9 +4,10 @@
   padding: 0;
   margin: 0;
   border: 0;
-  font-weight: $font-weight;
+  font-weight: $font-weight-light;
   font-size: $font-size;
   font-family: $base-font;
+  color: $color-font;
 }
 
 html,
@@ -14,6 +15,10 @@ body {
   width: 100%;
   height: 100%;
   font-size: $base-font-size;
+}
+
+body {
+  background-color: $color-background;
 }
 
 a {
@@ -61,6 +66,7 @@ button,
   background-color: $color-background;
   outline: none;
   cursor: pointer;
+  appearance: none;
 }
 
 ul,
