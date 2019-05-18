@@ -1,0 +1,11 @@
+.answerOptions {
+  margin-top: 7rem;
+  text-align: left;
+}
+
+.answerOption {
+  * {
+    cursor: pointer;
+    user-select: none;
+  }
+}

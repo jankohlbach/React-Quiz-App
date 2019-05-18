@@ -1,0 +1,17 @@
+.result {
+  h2 {
+    span {
+      color: $color-accent;
+    }
+  }
+
+  .resultPercentage {
+    margin-top: $gutter-width;
+    font-size: 6rem;
+    color: $color-accent;
+  }
+
+  p {
+    margin-top: 7rem;
+  }
+}
