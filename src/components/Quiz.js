@@ -23,7 +23,7 @@ function Quiz(props) {
       <ul className="answerOptions">
         {props.answerOptions.map(renderAnswerOptions)}
       </ul>
-      <QuestionCount counter={props.questionId} total={props.questionTotal} points={props.points}></QuestionCount>
+      <QuestionCount counter={props.questionId} total={props.questionTotal}></QuestionCount>
     </div>
   )
 }
