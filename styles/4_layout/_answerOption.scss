@@ -8,4 +8,48 @@
     cursor: pointer;
     user-select: none;
   }
+
+  input {
+    display: none;
+
+    &:checked {
+      + label {
+        span {
+          &::after {
+            transform: translate(-50%, -50%) scale(1);
+          }
+        }
+      }
+    }
+  }
+
+  label {
+    position: relative;
+    margin-left: 7rem;
+
+    span {
+      position: absolute;
+      left: -7rem;
+      display: inline-block;
+      width: 3rem;
+      height: 3rem;
+      margin-left: 2rem;
+      border: 2px solid rgba($color-font, .5);
+      border-radius: 100%;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        display: block;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 100%;
+        background-color: $color-accent;
+        transition: transform .3s;
+      }
+    }
+  }
 }

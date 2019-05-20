@@ -86,14 +86,14 @@ class App extends React.Component {
     if(this.state.questionId < quizQuestions.length) {
       setTimeout(() => {
         return this.setNextQuestion();
-      }, 300);
+      }, 500);
     } else {
       setTimeout(() => {
         this.setState({
           showQuiz: false,
           showResult: true,
         });
-      }, 300);
+      }, 500);
     }
   }
 
