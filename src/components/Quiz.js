@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Question from '../components/Question';
 import AnswerOption from '../components/AnswerOption';
 import QuestionCount from '../components/QuestionCount';
@@ -19,12 +20,20 @@ function Quiz(props) {
 
   return (
     <div className="quiz">
-      <div className="card">
-        <Question content={props.question}></Question>
-        <ul className="answerOptions">
-          {props.answerOptions.map(renderAnswerOptions)}
-        </ul>
+      <ReactCSSTransitionGroup
+        className="container"
+        component="div"
+        transitionName="fade"
+        transitionEnterTimeout={1000}
+        transitionLeaveTimeout={800}
+      >
+        <div className="card" key={props.questionId}>
+          <Question content={props.question}></Question>
+          <ul className="answerOptions">
+            {props.answerOptions.map(renderAnswerOptions)}
+          </ul>
         </div>
+      </ReactCSSTransitionGroup>
       <QuestionCount counter={props.questionId} total={props.questionTotal}></QuestionCount>
     </div>
   )
