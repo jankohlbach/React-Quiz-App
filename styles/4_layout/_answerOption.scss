@@ -4,6 +4,20 @@
 }
 
 .answerOption {
+  padding: 2rem;
+  background-color: #363f4e;
+  border-radius: 2rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+  transition: box-shadow .5s;
+
+  &:hover {
+    box-shadow: 0 0 1rem rgba($color-accent, .8);
+  }
+
+  + .answerOption {
+    margin-top: 2rem;
+  }
+
   * {
     cursor: pointer;
     user-select: none;
@@ -25,6 +39,8 @@
 
   label {
     position: relative;
+    display: flex;
+    align-items: center;
     margin-left: 7rem;
 
     span {
@@ -51,5 +67,11 @@
         transition: transform .3s;
       }
     }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .answerOptions {
+    margin-top: 4rem;
   }
 }

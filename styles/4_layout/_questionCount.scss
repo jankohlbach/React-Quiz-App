@@ -6,3 +6,9 @@
     color: $color-accent;
   }
 }
+
+@media (max-width: $breakpoint-small) {
+  .questionCount {
+    margin-top: 3rem;
+  }
+}

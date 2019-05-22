@@ -15,10 +15,19 @@ body {
   width: 100%;
   height: 100%;
   font-size: $base-font-size;
+
+  @media (max-width: $breakpoint-medium-large) {
+    font-size: $base-font-size - 2px;
+  }
+
+  @media (max-width: $breakpoint-small) {
+    font-size: $base-font-size - 4px;
+  }
 }
 
 body {
   background-color: $color-background;
+  overflow-y: scroll;
 }
 
 a {
