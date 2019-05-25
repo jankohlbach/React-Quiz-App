@@ -21,11 +21,11 @@ function Quiz(props) {
   return (
     <div className="quiz">
       <ReactCSSTransitionGroup
-        className="container"
+        className="animation-container"
         component="div"
         transitionName="fade"
-        transitionEnterTimeout={1000}
-        transitionLeaveTimeout={800}
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500}
       >
         <div className="card" key={props.questionId}>
           <Question content={props.question}></Question>
