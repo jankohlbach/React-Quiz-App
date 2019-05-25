@@ -31,14 +31,14 @@
 
   100% {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-100%) rotate(-10deg);
   }
 }
 
 @keyframes enter {
   0% {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(100%) rotate(10deg);
   }
 
   100% {
