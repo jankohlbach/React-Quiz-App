@@ -5,8 +5,8 @@
 
 .answerOption {
   padding: 2rem;
-  background-color: #363f4e;
   border-radius: 2rem;
+  background-color: #363f4e;
   box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
   transition: box-shadow .5s;
 
@@ -58,12 +58,12 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%) scale(0);
         display: block;
         width: 1.8rem;
         height: 1.8rem;
         border-radius: 100%;
         background-color: $color-accent;
+        transform: translate(-50%, -50%) scale(0);
         transition: transform .3s;
       }
     }

@@ -4,10 +4,10 @@
   padding: 0;
   margin: 0;
   border: 0;
+  color: $color-font;
   font-weight: $font-weight-light;
   font-size: $font-size;
   font-family: $base-font;
-  color: $color-font;
 }
 
 html,
@@ -79,9 +79,9 @@ h6,
 button,
 .button {
   background-color: $color-background;
+  appearance: none;
   outline: none;
   cursor: pointer;
-  appearance: none;
 }
 
 ul,

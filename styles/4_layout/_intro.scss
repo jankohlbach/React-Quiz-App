@@ -8,6 +8,6 @@ button {
   transition: background-color .3s;
 
   &:hover {
-    background-color: rgba($color-accent, 0.1);;
+    background-color: rgba($color-accent, .1);
   }
 }
