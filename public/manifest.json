@@ -1,6 +1,6 @@
 {
-  "short_name": "Webdeveloper Quick-Check",
-  "name": "Webdeveloper Quick-Check",
+  "short_name": "Quiz App",
+  "name": "React Quiz App",
   "icons": [
     {
       "src": "favicon.ico",

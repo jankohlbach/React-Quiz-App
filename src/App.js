@@ -1,130 +1,114 @@
 import React from 'react';
 import quizQuestions from './api/quizQuestions.js';
-import Quiz from './components/Quiz';
-import Intro from './components/Intro';
-import Result from './components/Result';
+import Intro from './components/intro/Intro';
+import Quiz from './components/quiz/Quiz';
+import Result from './components/result/Result';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      showIntro: true,
-      showQuiz: false,
-      showResult: false,
-      counter: 0,
+      quizState: 'intro',
       questionId: 1,
-      question: '',
-      answerOptions: [],
-      answer: '',
+      selectedAnswer: undefined,
       resultPoints: 0,
-    }
+    };
 
     this.handleStart = this.handleStart.bind(this);
-    this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
-  }
-
-  shuffleArray(array) {
-    let currentIndex = array.length;
-    let temporaryValue;
-    let randomIndex;
-
-    while(0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex = currentIndex - 1;
-
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-
-    return array;
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleStart() {
     this.setState({
-      showIntro: false,
-    });
-
-    const shuffledAnswerOptions = quizQuestions.map((question) => {
-      return this.shuffleArray(question.answers);
-    });
-
-    this.setState({
-      showQuiz: true,
-      counter: 0,
-      question: quizQuestions[0].question,
-      answerOptions: shuffledAnswerOptions[0],
+      quizState: 'quiz',
     });
   }
 
-  setUserAnswer(answer) {
-    let newResultPoints = this.state.resultPoints + parseInt(answer);
+  setSelectedAnswer(answer) {
+    const newSelectedAnswer = answer.points;
+
+    this.setState({
+      selectedAnswer: newSelectedAnswer,
+    })
+  }
+
+  calculatePoints(answer) {
+    const newResultPoints = this.state.resultPoints + answer.points;
 
     this.setState({
       resultPoints: newResultPoints,
-      answer: answer,
     });
   }
 
   setNextQuestion() {
-    const counter = this.state.counter + 1;
-    const questionId = this.state.questionId + 1;
+    const newQuestionId = this.state.questionId + 1;
 
     this.setState({
-      counter: counter,
-      questionId: questionId,
-      question: quizQuestions[counter].question,
-      answerOptions: quizQuestions[counter].answers,
-      answer: '',
+      questionId: newQuestionId,
+      selectedAnswer: undefined,
     });
   }
 
-  handleAnswerSelected(event) {
-    this.setUserAnswer(event.target.value);
+  handleChange(event) {
+    const answer = quizQuestions[this.state.questionId - 1].answers[event.target.id];
+    this.setSelectedAnswer(answer);
+    this.calculatePoints(answer);
 
-    if(this.state.questionId < quizQuestions.length) {
+    if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => {
         return this.setNextQuestion();
       }, 500);
     } else {
       setTimeout(() => {
         this.setState({
-          showQuiz: false,
-          showResult: true,
+          quizState: 'result',
         });
       }, 500);
     }
   }
 
-  renderResult() {
-    return (
-      <Result resultPoints={this.state.resultPoints} resultMaxPoints={quizQuestions.length * 2}></Result>
-    )
+  calculateMaxPoints() {
+    let maxPoints = 0;
+
+    quizQuestions.forEach((question) => {
+      const pointsArray = question.answers.map((answer) => {
+        return answer.points;
+      });
+      maxPoints = maxPoints + Math.max.apply(null, pointsArray);
+    });
+
+    return maxPoints;
   }
 
-  renderQuiz() {
-    return (
-      <Quiz
-        questionTotal={quizQuestions.length}
-        questionId={this.state.questionId}
-        question={this.state.question}
-        answerOptions={this.state.answerOptions}
-        answer={this.state.answer}
-        points={this.state.resultPoints}
-        onAnswerSelected={this.handleAnswerSelected}
-      ></Quiz>
-    )
+  renderQuizState() {
+    switch(this.state.quizState) {
+      case 'intro':
+        return <Intro onStart={this.handleStart} />;
+      case 'quiz':
+        return (
+          <Quiz
+            question={quizQuestions[this.state.questionId - 1].question}
+            answerOptions={quizQuestions[this.state.questionId - 1].answers}
+            selectedAnswer={this.state.selectedAnswer}
+            handleChange={this.handleChange}
+            questionId={this.state.questionId}
+            questionAmount={quizQuestions.length}
+          />
+        )
+      case 'result':
+        return <Result resultPoints={this.state.resultPoints} resultMaxPoints={this.calculateMaxPoints()} />
+      default:
+        return <h3>huh, something's wrong here...</h3>;
+    }
   }
 
   render() {
     return (
       <div className="app">
-        <h1>Webdeveloper Check</h1>
-        <h2>Check out if you are the born webdeveloper</h2>
-        {this.state.showIntro ? <Intro onStart={this.handleStart}></Intro> : null}
-        {this.state.showQuiz ? this.renderQuiz() : null}
-        {this.state.showResult ? this.renderResult() : null}
+        <h1>Quiz App</h1>
+        <h2>Subheadline, can be way longer</h2>
+        {this.renderQuizState()}
       </div>
     )
   }

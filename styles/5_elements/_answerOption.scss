@@ -1,40 +1,26 @@
-.answerOptions {
+.answer-options {
   margin-top: 7rem;
   text-align: left;
 }
 
-.answerOption {
+.answer-option {
   padding: 2rem;
   border-radius: 2rem;
-  background-color: #363f4e;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+  background-color: $color-background-answers;
+  box-shadow: 0 0 1rem rgba($color-black, .1);
   transition: box-shadow .5s;
 
   &:hover {
     box-shadow: 0 0 1rem rgba($color-accent, .8);
   }
 
-  + .answerOption {
+  + .answer-option {
     margin-top: 2rem;
   }
 
   * {
     cursor: pointer;
     user-select: none;
-  }
-
-  input {
-    display: none;
-
-    &:checked {
-      + label {
-        span {
-          &::after {
-            transform: translate(-50%, -50%) scale(1);
-          }
-        }
-      }
-    }
   }
 
   label {
@@ -68,10 +54,24 @@
       }
     }
   }
+
+  input {
+    display: none;
+
+    &:checked {
+      + label {
+        span {
+          &::after {
+            transform: translate(-50%, -50%) scale(1);
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: $breakpoint-small) {
-  .answerOptions {
+  .answer-options {
     margin-top: 4rem;
   }
 }

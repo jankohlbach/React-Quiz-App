@@ -32,9 +32,10 @@ h1 {
 .card {
   padding: 7rem 5rem;
   border-radius: 2rem;
-  background-color: #313945;
-  box-shadow: 0 0 3rem rgba(0, 0, 0, .2);
+  background-color: $color-background-card;
+  box-shadow: 0 0 3rem rgba($color-black, .2);
   text-align: center;
+  align-self: stretch;
 }
 
 @media (max-width: $breakpoint-medium-large) {

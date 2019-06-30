@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function QuestionCount(props) {
+function QuizNavigation(props) {
   return (
-    <div className="questionCount">
+    <div className="quiz-navigation">
       <p>Question <span>{props.counter}</span> of <span>{props.total}</span></p>
     </div>
   )
 }
 
-QuestionCount.propTypes = {
+QuizNavigation.propTypes = {
   counter: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
 };
 
-export default QuestionCount;
+export default QuizNavigation;

@@ -1,7 +1,13 @@
 // colors
+$color-black: #000000;
 $color-font: #e2e2e2;
 $color-background: #31363e;
+$color-background-card: #313945;
+$color-background-answers: #363f4e;
 $color-accent: #44ffd2;
+
+// golden ratio
+$golden-ratio: 1.618;
 
 // fonts
 $base-font: 'Raleway', sans-serif;
@@ -23,8 +29,8 @@ $font-weight-bold: 700;
 
 // dimensions
 $content-width: 1290px;
-$content-margin: 30px;
-$gutter-width: 30px;
+$content-margin: 3rem;
+$gutter-width: 3rem;
 
 // breakpoints
 $breakpoint-xlarge: 1280px;

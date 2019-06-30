@@ -5,10 +5,14 @@
     }
   }
 
-  .resultPercentage {
+  .result-percentage {
     margin-top: $gutter-width;
     color: $color-accent;
     font-size: 6rem;
+
+    span {
+      font-size: 6rem;
+    }
   }
 
   p {

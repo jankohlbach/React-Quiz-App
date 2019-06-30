@@ -1,8 +1,0 @@
-// clear after floats
-%clearfix {
-  &::after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-}
